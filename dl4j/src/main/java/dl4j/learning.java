@@ -37,7 +37,10 @@ public class learning {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		File dir = new File("D:" + "/deeplearning/");
+		if(!dir.exists()) {
+			dir.mkdirs();
+		}
 		Scanner scan = new Scanner(System.in); // 문자 입력을 인자로 Scanner 생성
 
 		System.out.println("파일명을 입력하세요:");
@@ -48,10 +51,7 @@ public class learning {
 	}
 
 	public static void learning() {
-		File dir = new File("D:" + "/deeplearning/");
-		if(!dir.exists()) {
-			dir.mkdirs();
-		}
+		
 		lst = null;
 
 		File localFile = new File("D:" + "/deeplearning/", filename);
