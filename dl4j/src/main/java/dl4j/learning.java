@@ -15,15 +15,17 @@ import org.deeplearning4j.text.sentenceiterator.FileSentenceIterator;
 import org.deeplearning4j.text.sentenceiterator.LineSentenceIterator;
 import org.deeplearning4j.text.sentenceiterator.SentenceIterator;
 import org.deeplearning4j.text.sentenceiterator.SentencePreProcessor;
+import org.deeplearning4j.text.sentenceiterator.interoperability.SentenceIteratorConverter;
 import org.deeplearning4j.text.tokenization.tokenizer.preprocessor.CommonPreprocessor;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.DefaultTokenizerFactory;
+import org.deeplearning4j.text.tokenization.tokenizerfactory.KoreanTokenizerFactory;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
 
 public class learning {
 	public static Word2Vec vec = null;
 	public static int layersize = 100;
 	public static int windowsize = 5; // 문장 나누는 구분
-	public static int minword = 5; // 최저 반복단어수
+	public static int minword = 5; // 최저반복단어수
 	public static int itter = 1; // 문장 반복수
 	public static int seed = 0; // 랜덤난수
 	public static int batchsize = 512; // 한번에 처리하는 데이터값
@@ -55,18 +57,20 @@ public class learning {
 		lst = null;
 
 		File localFile = new File("D:" + "/deeplearning/", filename);
-
+		
 		    //    iter = new FileSentenceIterator(localFile);
 
 		/* try { */
-
+		
 			//iter = new BasicLineIterator(localFile);
 			iter = new LineSentenceIterator(localFile);
+
 	/*	} catch (FileNotFoundException e) {
 //		            Log.e("이더실패",e.getMessage().toString());
 			System.out.println("이더실패" + e.getMessage().toString());
 		}*/
-		TokenizerFactory t = new DefaultTokenizerFactory();
+		//TokenizerFactory t = new DefaultTokenizerFactory();
+		TokenizerFactory t= new KoreanTokenizerFactory();
 		t.setTokenPreProcessor(new CommonPreprocessor());
 		iter.setPreProcessor(new SentencePreProcessor() {
 
@@ -141,6 +145,7 @@ public class learning {
 			Scanner scan2 = new Scanner(System.in);
 			String result = scan2.nextLine();
 			System.out.println(vec.wordsNearest(result,10));
+		
 		} catch (IllegalStateException e) {
 			// 에러
 			System.out.println("에러" + e.getMessage().toString());

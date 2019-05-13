@@ -26,7 +26,12 @@ dependencies {
         exclude group: 'org.bytedeco.javacpp-presets', module: 'hdf5-platform'
         exclude group: 'org.nd4j', module: 'nd4j-base64'
     }
-    
+     implementation (group: 'org.deeplearning4j', name: 'deeplearning4j-nlp-korean_2.11', version: '1.0.0-beta4') {
+        exclude group: 'org.bytedeco.javacpp-presets', module: 'opencv-platform'
+        exclude group: 'org.bytedeco.javacpp-presets', module: 'leptonica-platform'
+        exclude group: 'org.bytedeco.javacpp-presets', module: 'hdf5-platform'
+        exclude group: 'org.nd4j', module: 'nd4j-base64'
+    }
   	    implementation  'org.nd4j:nd4j-native-platform:1.0.0-beta4'
   	    implementation group: 'org.bytedeco.javacpp-presets', name: 'openblas', version: '0.3.3-1.4.3'
     implementation group: 'org.bytedeco.javacpp-presets', name: 'openblas', version: '0.3.3-1.4.3', classifier: "android-arm"
