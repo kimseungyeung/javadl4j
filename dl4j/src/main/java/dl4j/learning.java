@@ -121,6 +121,7 @@ public class learning {
 					.stopWords(stopword) // 학습할때 무시하는 단어의 리스트
 					.workers(worker)// 학습시 사용하는 쓰레드의 갯수
 					.learningRate(learningrate) // 학습설정시 1보다 무조건작게설정해야함
+				
 					.build();
 
 			vec.fit();
