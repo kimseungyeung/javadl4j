@@ -17,6 +17,7 @@ public static Word2Vec vec;
 		if(vec==null) {
 		vec =WordVectorSerializer.readWord2VecModel("D:" + "/deeplearning/" + "pathToSaveModel.txt");
 	}
+		
 		Scanner scan = new Scanner(System.in); // 문자 입력을 인자로 Scanner 생성
 
 	System.out.println("검색값을 입력하세요:");

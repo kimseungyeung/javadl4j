@@ -28,7 +28,7 @@ public class learning {
 	public static int minword = 5; // 최저반복단어수
 	public static int itter = 1; // 문장 반복수
 	public static int seed = 0; // 랜덤난수
-	public static int batchsize = 512; // 한번에 처리하는 데이터값
+	public static int batchsize = 300; // 한번에 처리하는 데이터값
 	public static int epoch = 5; // 전체 반복수
 	public static int worker = 1;// 데이터를 분할해서 학습하므로 학습속도가 빨라지지만 데이터를 분할처리해서 학습결과가 제대로 안나올수있음
 	public static double learningrate = 0.025;
@@ -58,17 +58,17 @@ public class learning {
 
 		File localFile = new File("D:" + "/deeplearning/", filename);
 		
-		    //    iter = new FileSentenceIterator(localFile);
-
-		/* try { */
+		       // iter = new FileSentenceIterator(localFile);
+		        
+		 try { 
 		
-			//iter = new BasicLineIterator(localFile);
-			iter = new LineSentenceIterator(localFile);
+			iter = new BasicLineIterator(localFile);
+			//iter = new LineSentenceIterator(localFile);
 
-	/*	} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 //		            Log.e("이더실패",e.getMessage().toString());
 			System.out.println("이더실패" + e.getMessage().toString());
-		}*/
+		}
 		//TokenizerFactory t = new DefaultTokenizerFactory();
 		TokenizerFactory t= new KoreanTokenizerFactory();
 		t.setTokenPreProcessor(new CommonPreprocessor());
