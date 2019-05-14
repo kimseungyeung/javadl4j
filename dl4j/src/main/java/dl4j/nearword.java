@@ -21,7 +21,7 @@ public static Word2Vec vec;
 		Scanner scan = new Scanner(System.in); // 문자 입력을 인자로 Scanner 생성
 
 	System.out.println("검색값을 입력하세요:");
-
+	System.out.println(vec.getVocab().elementAtIndex(1).getWord().toString()); //모델 랭킹 찾기
 	String word = scan.nextLine();
 	String result =vec.wordsNearest(word,5).toString();
 	System.out.println(result);

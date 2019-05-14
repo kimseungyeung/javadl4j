@@ -77,7 +77,7 @@ public class learning {
 		  }
 		 
 		// TokenizerFactory t = new DefaultTokenizerFactory();
-		TokenizerFactory t = new ExcelTokenizerFactory();
+		TokenizerFactory t = new ExcelTokenizerFactory(0);
 		// TokenizerFactory t= new KoreanTokenizerFactory();
 		t.setTokenPreProcessor(new TokenPreProcess() {
 
@@ -137,13 +137,13 @@ public class learning {
 					.build();
 
 			vec.fit();
-
+			System.out.println(vec.getVocab().elementAtIndex(0).toString());
 			System.out.println("학습중");
 		} catch (Exception e) {
 			System.out.println("에러" + e.getMessage().toString());
 		}
 		final Collection<String> list = vec.getStopWords();
-
+		
 		File f = new File("D:" + "/deeplearning/" + "pathToSaveModel.txt");
 		if (f != null) {
 			if (f.exists()) {

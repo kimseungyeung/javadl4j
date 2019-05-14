@@ -30,27 +30,16 @@ import java.io.InputStream;
 public class ExcelTokenizerFactory implements TokenizerFactory {
 
     private TokenPreProcess preProcess;
-
-    public ExcelTokenizerFactory() {}
-
+    private int type=0;
+    public ExcelTokenizerFactory(int tp) {
+    	this.type=tp;
+    }
+    
     @Override
     public Tokenizer create(String toTokenize) {
-        ExcelTokenizer t = new ExcelTokenizer(toTokenize);
-        t.setTokenPreProcessor(new TokenPreProcess() {
-			
-			@Override
-			public String preProcess(String token) {
-				// TODO Auto-generated method stub
-				String s = token;
-				s = s.replace("¡°", "");
-				s = s.replace("¡±", "");
-				s = s.replace(" ","");
-				s= s.replace("\"","");
-				String[] values = s.split(",");
-				return null;
-			}
-		});
-      //  t.setTokenPreProcessor(preProcess);
+        ExcelTokenizer t = new ExcelTokenizer(toTokenize,type);
+   
+        t.setTokenPreProcessor(preProcess);
         return t;
     }
 
