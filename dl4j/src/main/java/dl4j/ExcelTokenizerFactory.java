@@ -17,7 +17,6 @@ package dl4j;
  ******************************************************************************/
 
 
-import org.deeplearning4j.text.tokenization.tokenizer.KoreanTokenizer;
 import org.deeplearning4j.text.tokenization.tokenizer.TokenPreProcess;
 import org.deeplearning4j.text.tokenization.tokenizer.Tokenizer;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
