@@ -137,7 +137,7 @@ public class learning {
 					.build();
 
 			vec.fit();
-			System.out.println(vec.getVocab().elementAtIndex(0).toString());
+			
 			System.out.println("학습중");
 		} catch (Exception e) {
 			System.out.println("에러" + e.getMessage().toString());
