@@ -23,9 +23,9 @@ public static Word2Vec vec;
 	System.out.println("검색값을 입력하세요:");
 
 	String word = scan.nextLine();
-	String result =vec.wordsNearest(word,10).toString();
+	String result =vec.wordsNearest(word,5).toString();
 	System.out.println(result);
-
+	nearword.main(null);
 	}
 
 }
