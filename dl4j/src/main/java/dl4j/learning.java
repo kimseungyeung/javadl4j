@@ -157,7 +157,7 @@ public class learning {
 			Scanner scan2 = new Scanner(System.in);
 			String result = scan2.nextLine();
 			System.out.println(vec.wordsNearest(result, 10));
-			
+			String s= "wsdf";
 		} catch (IllegalStateException e) {
 			// 에러
 			System.out.println("에러" + e.getMessage().toString());
