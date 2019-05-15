@@ -33,7 +33,7 @@ public class ExcelTokenizer implements Tokenizer {
 				.tokenize(values[3]);
 		tokenList = new ArrayList<>();
 		Iterator<KoreanTokenJava> iter = TwitterKoreanProcessorJava.tokensToJavaKoreanTokenList(tokens).iterator();
-		//¹®Àå´ÜÀ§·Î ²÷¾î¼­ Ã³¸®ÇØ¾ßÇÒ°æ¿ì 
+		//ë¬¸ì¥ë‹¨ìœ„ë¡œ ëŠì–´ì„œ ì²˜ë¦¬í•´ì•¼í• ê²½ìš° 
 		if(type==0) {
 		while (iter.hasNext()) {
 			String addd = iter.next().getText().trim();
@@ -42,7 +42,7 @@ public class ExcelTokenizer implements Tokenizer {
 			}
 		}
 		}
-		//´Ü¾î·Î Ç¥½ÃÇØ¾ßÇÒ°æ¿ì (¶ç¾î¾²±â ±×´ë·Î Ç¥½ÃÇÏ±âÀ§ÇÔ)
+		//ë‹¨ì–´ë¡œ í‘œì‹œí•´ì•¼í• ê²½ìš° (ë„ì–´ì“°ê¸° ê·¸ëŒ€ë¡œ í‘œì‹œí•˜ê¸°ìœ„í•¨)
 		else if(type==1) {
 		tokenList.add(values[3]);
 		}
