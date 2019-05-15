@@ -26,13 +26,13 @@ import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
 public class learning {
 	public static Word2Vec vec = null;
 	public static int layersize = 100;
-	public static int windowsize = 5; // ¹®Àå ³ª´©´Â ±¸ºÐ
-	public static int minword = 5; // ÃÖÀú¹Ýº¹´Ü¾î¼ö
-	public static int itter = 1; // ¹®Àå ¹Ýº¹¼ö
-	public static int seed = 0; // ·£´ý³­¼ö
-	public static int batchsize = 150; // ÇÑ¹ø¿¡ Ã³¸®ÇÏ´Â µ¥ÀÌÅÍ°ª
-	public static int epoch =5; // ÀüÃ¼ ¹Ýº¹¼ö
-	public static int worker = 1;// µ¥ÀÌÅÍ¸¦ ºÐÇÒÇØ¼­ ÇÐ½ÀÇÏ¹Ç·Î ÇÐ½À¼Óµµ°¡ »¡¶óÁöÁö¸¸ µ¥ÀÌÅÍ¸¦ ºÐÇÒÃ³¸®ÇØ¼­ ÇÐ½À°á°ú°¡ Á¦´ë·Î ¾È³ª¿Ã¼öÀÖÀ½
+	public static int windowsize = 5; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public static int minword = 5; // ï¿½ï¿½ï¿½ï¿½ï¿½Ýºï¿½ï¿½Ü¾ï¿½ï¿½
+	public static int itter = 1; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ï¿½ï¿½
+	public static int seed = 0; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	public static int batchsize = 150; // ï¿½Ñ¹ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½
+	public static int epoch =5; // ï¿½ï¿½Ã¼ ï¿½Ýºï¿½ï¿½ï¿½
+	public static int worker = 1;// ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ð½ï¿½ï¿½Ï¹Ç·ï¿½ ï¿½Ð½ï¿½ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ã³ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È³ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	public static double learningrate = 0.025;
 	public static String filename = "test.txt";
 	public static List<String> stopword;
@@ -45,9 +45,9 @@ public class learning {
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
-		Scanner scan = new Scanner(System.in); // ¹®ÀÚ ÀÔ·ÂÀ» ÀÎÀÚ·Î Scanner »ý¼º
+		Scanner scan = new Scanner(System.in); // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ Scanner ï¿½ï¿½ï¿½ï¿½
 
-		System.out.println("ÆÄÀÏ¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä:");
+		System.out.println("ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½:");
 
 		filename = scan.nextLine();
 
@@ -70,7 +70,7 @@ public class learning {
 		
 		  } catch (FileNotFoundException e) { //
 			/*
-			 * Log.e("ÀÌ´õ½ÇÆÐ",e.getMessage().toString()); System.out.println("ÀÌ´õ½ÇÆÐ" +
+			 * Log.e("ï¿½Ì´ï¿½ï¿½ï¿½ï¿½ï¿½",e.getMessage().toString()); System.out.println("ï¿½Ì´ï¿½ï¿½ï¿½ï¿½ï¿½" +
 			 * e.getMessage().toString());
 			 */
 		  }
@@ -85,8 +85,8 @@ public class learning {
 				// TODO Auto-generated method stub
 				if (!token.equals(",")) {
 					String s = token;
-					s = s.replace("¡°", "");
-					s = s.replace("¡±", "");
+					s = s.replace("ï¿½ï¿½", "");
+					s = s.replace("ï¿½ï¿½", "");
 					s = s.replace(" ", "");
 					s = s.replace("\"", "");
 					String[] values = s.split(",");
@@ -110,36 +110,36 @@ public class learning {
 		stopword.add("<");
 		stopword.add("\\");
 		stopword.add("%");
-		stopword.add("£¢");
-		stopword.add("¡±");
-		stopword.add("¢©");
-		stopword.add("¡È");
-		stopword.add("¡±");
-		stopword.add("¡°");
-		stopword.add("¡±");
+		stopword.add("ï¿½ï¿½");
+		stopword.add("ï¿½ï¿½");
+		stopword.add("ï¿½ï¿½");
+		stopword.add("ï¿½ï¿½");
+		stopword.add("ï¿½ï¿½");
+		stopword.add("ï¿½ï¿½");
+		stopword.add("ï¿½ï¿½");
 
-		System.out.println("ÇÐ½À½ÃÀÛ");
+		System.out.println("ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		try {
-			vec = new Word2Vec.Builder().minWordFrequency(minword) // µîÀå È½¼ö°¡ minword ÀÌÇÏÀÎ ´Ü¾î´Â ¹«½Ã
-					.iterations(itter) // ¹®Àå¹Ýº¹È½¼ö
+			vec = new Word2Vec.Builder().minWordFrequency(minword) // ï¿½ï¿½ï¿½ï¿½ È½ï¿½ï¿½ï¿½ï¿½ minword ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					.iterations(itter) // ï¿½ï¿½ï¿½ï¿½Ýºï¿½È½ï¿½ï¿½
 					.layerSize(layersize) // output layer size
 					.windowSize(windowsize).iterate(iter)
-//		                    .limitVocabularySize(1)  //»ç¿ëÇÏ´Â ¾îÈÖ¼öÀÇ Á¦ÇÑ
+//		                    .limitVocabularySize(1)  //ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		                    .useHierarchicSoftmax(true)
 //		                    .useAdaGrad(true)
-//		                    .seed(seed) //·£´ý³­¼ö Àû¿ë
-					.tokenizerFactory(t).epochs(epoch) // ÀüÃ¼ÇÐ½À¹Ýº¹
-					.batchSize(batchsize)// »çÀü ±¸ÃàÇÒ¶§ ÇÑ¹ø¿¡ ÀÐÀ» ´Ü¾î ¼ö
-					.stopWords(stopword) // ÇÐ½ÀÇÒ¶§ ¹«½ÃÇÏ´Â ´Ü¾îÀÇ ¸®½ºÆ®
-					.workers(worker)// ÇÐ½À½Ã »ç¿ëÇÏ´Â ¾²·¹µåÀÇ °¹¼ö
-					.learningRate(learningrate) // ÇÐ½À¼³Á¤½Ã 1º¸´Ù ¹«Á¶°ÇÀÛ°Ô¼³Á¤ÇØ¾ßÇÔ
+//		                    .seed(seed) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					.tokenizerFactory(t).epochs(epoch) // ï¿½ï¿½Ã¼ï¿½Ð½ï¿½ï¿½Ýºï¿½
+					.batchSize(batchsize)// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ò¶ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ü¾ï¿½ ï¿½ï¿½
+					.stopWords(stopword) // ï¿½Ð½ï¿½ï¿½Ò¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ü¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+					.workers(worker)// ï¿½Ð½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+					.learningRate(learningrate) // ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û°Ô¼ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
 					.build();
 
 			vec.fit();
 			
-			System.out.println("ÇÐ½ÀÁß");
+			System.out.println("ï¿½Ð½ï¿½ï¿½ï¿½");
 		} catch (Exception e) {
-			System.out.println("¿¡·¯" + e.getMessage().toString());
+			System.out.println("ï¿½ï¿½ï¿½ï¿½" + e.getMessage().toString());
 		}
 		final Collection<String> list = vec.getStopWords();
 		
@@ -153,14 +153,14 @@ public class learning {
 //		            WordVectorSerializer.writeFullModel(vec, Environment.getExternalStorageDirectory().getAbsolutePath() + "/deeplearning/" + "pathToSaveModel.txt");
 			WordVectorSerializer.writeWord2VecModel(vec, "D:" + "/deeplearning/" + "pathToSaveModel.txt");
 			// WordVectorSerializer.writeWord2VecModel(vec,f);
-			System.out.println("¿Ï·á:" + "ÇÐ½ÀÀÌ Á¾·áµÇ¾ú½À´Ï´Ù");
+			System.out.println("ï¿½Ï·ï¿½:" + "ï¿½Ð½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½");
 			Scanner scan2 = new Scanner(System.in);
 			String result = scan2.nextLine();
 			System.out.println(vec.wordsNearest(result, 10));
-			
+			String ss= "???";
 		} catch (IllegalStateException e) {
-			// ¿¡·¯
-			System.out.println("¿¡·¯" + e.getMessage().toString());
+			// ï¿½ï¿½ï¿½ï¿½
+			System.out.println("ï¿½ï¿½ï¿½ï¿½" + e.getMessage().toString());
 		}
 	}
 }
